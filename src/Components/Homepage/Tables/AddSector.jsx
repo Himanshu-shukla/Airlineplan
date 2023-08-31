@@ -251,7 +251,7 @@ const AddSector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3005/add-sector",
+        "https://airlines-project.onrender.com/add-sector",
         {
           sector1,
           sector2,

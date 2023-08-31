@@ -249,7 +249,7 @@ const UpdateSectore = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3005/sectorsbyid/${DataId}`
+        `https://airlines-project.onrender.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
 
@@ -350,7 +350,7 @@ const UpdateSectore = (props) => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://localhost:3005/update-sectore/${DataId}`,
+        `https://airlines-project.onrender.com/update-sectore/${DataId}`,
         {
           sector1,
           sector2,

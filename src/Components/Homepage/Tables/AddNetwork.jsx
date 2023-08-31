@@ -243,7 +243,7 @@ const AddNetwork = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3005/add-Data",
+        "https://airlines-project.onrender.com/add-Data",
         {
           flight,
           depStn,

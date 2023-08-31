@@ -197,7 +197,7 @@ export default function CopyRow(props) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3005/products/${DataId}`
+        `https://airlines-project.onrender.com/products/${DataId}`
       );
       const item = response.data;
       setFlight(item.flight);
@@ -251,7 +251,7 @@ export default function CopyRow(props) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3005/add-Data",
+        "https://airlines-project.onrender.com/add-Data",
         {
           flight,
           depStn,

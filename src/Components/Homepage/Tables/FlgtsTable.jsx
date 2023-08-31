@@ -190,7 +190,7 @@ const FlgtsTable = (props) => {
   
       const accessToken = localStorage.getItem("accessToken");
       
-      const response = await axios.get("http://localhost:3005/download", {
+      const response = await axios.get("https://airlines-project.onrender.com/download", {
         responseType: "blob", // Specify response type as blob
         headers: {
           "x-access-token": accessToken,

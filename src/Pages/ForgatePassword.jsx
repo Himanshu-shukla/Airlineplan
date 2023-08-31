@@ -27,7 +27,7 @@ const ForgatePassword = () => {
   const sendOtp = async () => {
     try {
       setLoading(true);
-      let url = "http://localhost:3005/send-email";
+      let url = "https://airlines-project.onrender.com/send-email";
       let options = {
         method: "POST",
         url: url,

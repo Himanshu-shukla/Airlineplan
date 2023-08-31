@@ -202,7 +202,7 @@ const UpdatePopUp = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3005/products/${productId}`
+        `https://airlines-project.onrender.com/products/${productId}`
       );
       const item = response.data;
 
@@ -280,7 +280,7 @@ const UpdatePopUp = (props) => {
     if (productId) {
       setLoading(true);
       axios
-        .put(`http://localhost:3005/update-data/${productId}`, productData, {
+        .put(`https://airlines-project.onrender.com/update-data/${productId}`, productData, {
           headers: 
           { 'x-access-token': `${localStorage.getItem('accessToken')}`, 'Content-Type': 'application/json' },
         })

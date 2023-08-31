@@ -207,7 +207,7 @@ const NetworkTable = () => {
     formData.append("file", selectedFile);
 
     axios
-      .post("http://localhost:3005/importUser", formData, {
+      .post("https://airlines-project.onrender.com/importUser", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -228,7 +228,7 @@ const NetworkTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3005/get-data");
+        const response = await axios.get("https://airlines-project.onrender.com/get-data");
         setNetworkTableData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -248,7 +248,7 @@ const NetworkTable = () => {
     }
 
     try {
-      const response = await axios.delete(`http://localhost:3005/delete/${id}`);
+      const response = await axios.delete(`https://airlines-project.onrender.com/delete/${id}`);
       setDeletedData(response.data.data);
       toast.success("Delete Successfull");
       setTimeout(() => {

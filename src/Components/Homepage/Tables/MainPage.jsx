@@ -56,7 +56,7 @@ const MainPage = () => {
     const fetchFlightsData = async () => {
         try {
           const accessToken = localStorage.getItem("accessToken");
-          const response = await axios.get("http://localhost:3005/flight", {
+          const response = await axios.get("https://airlines-project.onrender.com/flight", {
             headers: {
               "x-access-token": accessToken,
             },           

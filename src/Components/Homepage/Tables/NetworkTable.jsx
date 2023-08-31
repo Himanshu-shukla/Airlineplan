@@ -223,7 +223,7 @@ const NetworkTable = () => {
   };
   const handleFileUpload = () => {
     const accessToken = localStorage.getItem("accessToken");
-    const url = "http://localhost:3005/importUser";
+    const url = "https://airlines-project.onrender.com/importUser";
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -286,7 +286,7 @@ const NetworkTable = () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
 
-        const response = await axios.get("http://localhost:3005/get-data", {
+        const response = await axios.get("https://airlines-project.onrender.com/get-data", {
           headers: {
             "x-access-token": accessToken,
           },
@@ -312,7 +312,7 @@ const NetworkTable = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:3005/delete/${checkedRows.join(",")}`
+        `https://airlines-project.onrender.com/delete/${checkedRows.join(",")}`
       );
 
       if (

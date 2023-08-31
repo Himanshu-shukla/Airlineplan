@@ -77,7 +77,7 @@ const submitButton =async ()=>{
   if(validForm()){
     Object.assign(inputField,props)
     console.log(inputField,props)
-    let url ='http://localhost:3005/change-passowrd'
+    let url ='https://airlines-project.onrender.com/change-passowrd'
     let optios ={
       method: 'POST',
       url:url,

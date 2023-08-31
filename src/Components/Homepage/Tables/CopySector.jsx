@@ -72,7 +72,7 @@ const CopySector = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3005/sectorsbyid/${DataId}`
+        `https://airlines-project.onrender.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
       const inputDate = item?.fromDt;
@@ -285,7 +285,7 @@ const CopySector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3005/add-sector",
+        "https://airlines-project.onrender.com/add-sector",
         {
           sector1,
           sector2,
