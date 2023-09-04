@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Table, TableHead, TableRow, TableCell, TableBody, Stack, MenuItem, TextField, Box, TableContainer, Paper, Typography, Button } from '@mui/material'
+import { Table, TableHead, TableRow, TableCell, TableBody, Stack, MenuItem, TextField, Grid, Box, TableContainer, Paper, Typography, Button } from '@mui/material'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -25,33 +25,6 @@ const DashboardTable = (props) => {
   return (
     <Stack direction='column' gap='1rem' my='16px'>
       <Stack direction='row' alignItems='center' justifyContent='space-between' mt='10px'>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoContainer components={['DateField']}>
-            <Box sx={{ width: '100%', minWidth: '200px' }}>
-              <DateField
-                label="From Date"
-                value={from}
-                onChange={(newValue) => setFrom(newValue)}
-                format="DD-MMM-YY"
-                size='small'
-              />
-            </Box>
-          </DemoContainer>
-        </LocalizationProvider>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoContainer components={['DateField']}>
-            <Box sx={{ width: '100%', minWidth: '200px' }}>
-              <DateField
-                label="To Date"
-                value={to}
-                onChange={(newValue) => setTo(newValue)}
-                format="DD-MMM-YY"
-                size='small'
-                sx={{}}
-              />
-            </Box>
-          </DemoContainer>
-        </LocalizationProvider>
         <TextField select
           label='Label'
           size='small'
@@ -63,120 +36,33 @@ const DashboardTable = (props) => {
           <MenuItem value='Intl'>INTL</MenuItem>
           <MenuItem value='Intl'>Both</MenuItem>
         </TextField>
-        <TextField variant='outlined' placeholder='Airport' size='small'
-          label='Airport'
-          sx={{ mt: '5px', minWidth: '200px' }}
-        />
         <Stack>
           <Button variant='contained' sx={{ px: '30px', mt: '5px' }} onClick={props.runhandler}>Run</Button>
         </Stack>
       </Stack>
-      <Stack direction='column' gap='2rem'>
-        <Paper elevation={2}>
-          <Table sx={{ border: '0.5px solid #F5F5F5', borderRadius: '12px' }}>
-            <TableBody sx={{ margin: 0, padding: 0 }}>
-              {DashboardTableData.map((row, index) => (
-                <TableRow key={index} sx={{ margin: 0, padding: 0 }}>
-                  <TableCell sx={{ whiteSpace: 'nowrap', margin: 0, padding: 0 }}>
-                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', ml: '5px' }}>{row.firstCol}</Typography>
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='FROM'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='TO'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='Sector'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='ACFT Type'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='Variant'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='User Tag 1'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                  <TableCell sx={{ padding: '6px' }}>
-                    <TextField variant='outlined' size='small' placeholder='User Tag 2'
-                      sx={{
-                        minWidth: '100px',
-                        '& .MuiOutlinedInput-notchedOutline': { height: '30px' },
-                        '& .MuiOutlinedInput-input': {
-                          fontSize: '14px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }} />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Paper>
-        <Paper elevation={2} sx={{ height: 'fit-content' }}>
+       <Grid container spacing={2}>
+       {/* You can adjust the spacing and other props as needed */}
+       <Grid item xs={2}>
+         <TextField size='small' placeholder='From' label="From" variant="outlined" fullWidth />
+       </Grid>
+       <Grid item xs={2}>
+         <TextField size='small' placeholder='To' label="To" variant="outlined" fullWidth />
+       </Grid>
+       <Grid item xs={2}>
+         <TextField size='small' placeholder='Sector' label="Sector" variant="outlined" fullWidth />
+       </Grid>
+       <Grid item xs={2}>
+         <TextField size='small' placeholder='Variant' label="Variant" variant="outlined" fullWidth />
+       </Grid>
+       <Grid item xs={2}>
+         <TextField size='small' placeholder='User Tag 1' label="User Tag 1" variant="outlined" fullWidth />
+       </Grid>
+       <Grid item xs={2}>
+         <TextField size='small' placeholder='User Tag 2' label="User Tag 2" variant="outlined" fullWidth />
+       </Grid>
+     </Grid>
+      <Stack direction='column' mt={5}>
+        <Paper elevation={1} sx={{ height: 'fit-content' }}>
           <Stack>
             <TextField select
               label='Select Periodicity'
@@ -188,7 +74,6 @@ const DashboardTable = (props) => {
               <MenuItem value="annually">Annually</MenuItem>
               <MenuItem value="quarterly">Quarterly</MenuItem>
               <MenuItem value="monthly">Monthly</MenuItem>
-              <MenuItem value="weekly">Weekly</MenuItem>
             </TextField>
             <TableContainer sx={{ overflowX: 'scroll' }}>
               <Table sx={{ border: '1px solid black', borderCollapse: 'collapse', borderSpacing: '0' }}>
