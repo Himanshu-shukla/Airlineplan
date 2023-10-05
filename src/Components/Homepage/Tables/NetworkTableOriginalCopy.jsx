@@ -183,7 +183,7 @@ const NetworkTable = () => {
     setDow(event.target.value);
   };
   const handleDomIntl = (event) => {
-    setDomIntl(event.target.value);
+    setDomIntl(event.target.value.toLowerCase());
   };
   const handleUserTag1 = (event) => {
     setUserTag1(event.target.value);
@@ -207,7 +207,7 @@ const NetworkTable = () => {
     formData.append("file", selectedFile);
 
     axios
-      .post("https://airlines-project.onrender.com/importUser", formData, {
+      .post("https://ec2-54-198-23-212.compute-1.amazonaws.com/importUser", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -228,7 +228,7 @@ const NetworkTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://airlines-project.onrender.com/get-data");
+        const response = await axios.get("https://ec2-54-198-23-212.compute-1.amazonaws.com/get-data");
         setNetworkTableData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -248,7 +248,7 @@ const NetworkTable = () => {
     }
 
     try {
-      const response = await axios.delete(`https://airlines-project.onrender.com/delete/${id}`);
+      const response = await axios.delete(`https://ec2-54-198-23-212.compute-1.amazonaws.com/delete/${id}`);
       setDeletedData(response.data.data);
       toast.success("Delete Successfull");
       setTimeout(() => {

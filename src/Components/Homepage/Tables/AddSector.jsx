@@ -251,7 +251,7 @@ const AddSector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://airlines-project.onrender.com/add-sector",
+        "https://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
         {
           sector1,
           sector2,
@@ -275,7 +275,7 @@ const AddSector = (props) => {
       );
 
       if (response.status === 201) {
-        toast.success("Add successful!");
+        toast.success("Update successful!");
         setLoading(false);
         setTimeout(() => {
           window.location.reload();

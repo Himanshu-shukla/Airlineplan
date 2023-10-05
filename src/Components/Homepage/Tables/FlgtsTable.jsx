@@ -146,7 +146,7 @@ const FlgtsTable = (props) => {
     setCargoRtk(event.target.value);
   };
   const handleDomIntl = (event) => {
-    setDomIntl(event.target.value);
+    setDomIntl(event.target.value.toLowerCase());
   };
   const handleUserTag1 = (event) => {
     setUserTag1(event.target.value);
@@ -190,7 +190,7 @@ const FlgtsTable = (props) => {
   
       const accessToken = localStorage.getItem("accessToken");
       
-      const response = await axios.get("https://airlines-project.onrender.com/download", {
+      const response = await axios.get("https://ec2-54-198-23-212.compute-1.amazonaws.com/downloadFLGTs", {
         responseType: "blob", // Specify response type as blob
         headers: {
           "x-access-token": accessToken,
@@ -1187,6 +1187,9 @@ const FlgtsTable = (props) => {
                   (row.arrStn || "")
                     ?.toLowerCase()
                     ?.includes(arrStn?.toLowerCase()) &&
+                  (row.sector || "")
+                    ?.toLowerCase()
+                    ?.includes(sector?.toLowerCase()) &&
                   (row.variant || "")
                     ?.toLowerCase()
                     ?.includes(variant?.toLowerCase()) &&
@@ -1223,7 +1226,7 @@ const FlgtsTable = (props) => {
                   (row.cargoRtk || "")
                     ?.toLowerCase()
                     ?.includes(cargoRtk?.toLowerCase()) &&
-                  (row.domINTL || "")
+                  (row.domIntl || "")
                     ?.toLowerCase()
                     ?.includes(domINTL?.toLowerCase()) &&
                   (row.userTag1 || "")
@@ -1483,7 +1486,7 @@ const FlgtsTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {row.remarks}
+                    {row.remarks1}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1493,7 +1496,7 @@ const FlgtsTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {row.remarks}
+                    {row.remarks2}
                   </TableCell>
                 </TableRow>
               ))}

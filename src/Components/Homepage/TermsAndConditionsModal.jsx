@@ -49,17 +49,19 @@ export default function TermsAndConditionsModal() {
   }, [open]);
 
   return (
-    <div>
+    <>
       <Button
         variant="text"
-        style={{
-          position: 'absolute',
-          bottom: 30,
+        sx={{
+          
           textAlign: 'center',
-          left: 50,
-          color: 'black',
+          margin: '4px auto',
+          color:"black",
           fontFamily: 'Calibri, Arial, sans-serif',
-          textTransform: 'none'
+          textTransform: 'none',
+          textDecoration: 'underline', // Add underline
+          fontSize: '16px', // Adjust font size
+          cursor: 'pointer',
         }}
         onClick={handleClickOpen('paper')}>
         Terms & Conditions
@@ -218,11 +220,7 @@ export default function TermsAndConditionsModal() {
             </Typography>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
-        </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }

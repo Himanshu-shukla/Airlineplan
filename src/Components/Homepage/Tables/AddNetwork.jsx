@@ -153,7 +153,7 @@ const AddNetwork = (props) => {
     }
   };
   const handleDomIntl = (event) => {
-    setDomIntl(event.target.value);
+    setDomIntl(event.target.value.toLowerCase());
   };
 
   const handleUserTag1 = (event) => {
@@ -243,7 +243,7 @@ const AddNetwork = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://airlines-project.onrender.com/add-Data",
+        "https://ec2-54-198-23-212.compute-1.amazonaws.com/add-Data",
         {
           flight,
           depStn,
@@ -255,11 +255,11 @@ const AddNetwork = (props) => {
           effFromDt,
           effToDt,
           dow,
-          domINTL,
           userTag1,
           userTag2,
           remarks1,
           remarks2,
+          domINTL
         },
         {
           headers: {
@@ -271,7 +271,7 @@ const AddNetwork = (props) => {
 
       if (response.status === 201) {
         setLoading(false);
-        toast.success("Add successful!");
+        toast.success("Update successful!");
         setTimeout(() => {
           window.location.reload();
         }, 2000);

@@ -141,10 +141,10 @@ const UpdatePopUp = (props) => {
     }
   };
   const handleDomIntl = (event) => {
-    setDomIntl(event.target.value);
+    setDomIntl(event.target.value.toLowerCase());
   };
   const handleUserTag1 = (event) => {
-    const input = event.target.value.trim();
+    const input = event.target.value;
     const isValid = /^\s*.{0,12}\s*$/.test(input);
     if (isValid) {
       setUserTag1(input);
@@ -154,7 +154,7 @@ const UpdatePopUp = (props) => {
     }
   };
   const handleUserTag2 = (event) => {
-    const input = event.target.value.trim();
+    const input = event.target.value;
     const isValid = /^\s*.{0,12}\s*$/.test(input);
     if (isValid) {
       setUserTag2(input);
@@ -202,7 +202,7 @@ const UpdatePopUp = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://airlines-project.onrender.com/products/${productId}`
+        `https://ec2-54-198-23-212.compute-1.amazonaws.com/products/${productId}`
       );
       const item = response.data;
 
@@ -222,7 +222,7 @@ const UpdatePopUp = (props) => {
       setEffFromDt(formattedDate);
       setEffToDt(formtEfftoDate);
       setDow(item.dow);
-      setDomIntl(item.domINTL);
+      setDomIntl(item.domINTL.toLowerCase());
       setUserTag1(item.userTag1);
       setUserTag2(item.userTag2);
       setRemarks1(item.remarks1);
@@ -280,14 +280,14 @@ const UpdatePopUp = (props) => {
     if (productId) {
       setLoading(true);
       axios
-        .put(`https://airlines-project.onrender.com/update-data/${productId}`, productData, {
+        .put(`https://ec2-54-198-23-212.compute-1.amazonaws.com/update-data/${productId}`, productData, {
           headers: 
           { 'x-access-token': `${localStorage.getItem('accessToken')}`, 'Content-Type': 'application/json' },
         })
         .then((response) => {
           const data = response.data;
           setLoading(false);
-          toast.success("Product updated successfully");
+          toast.success("Updated successfully");
           setMessage(data.message);
           setTimeout(() => {
             window.location.reload();

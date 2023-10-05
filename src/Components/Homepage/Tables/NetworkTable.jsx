@@ -203,7 +203,7 @@ const NetworkTable = () => {
     setDow(event.target.value);
   };
   const handleDomIntl = (event) => {
-    setDomIntl(event.target.value);
+    setDomIntl(event.target.value.toLowerCase());
   };
   const handleUserTag1 = (event) => {
     setUserTag1(event.target.value);
@@ -223,7 +223,7 @@ const NetworkTable = () => {
   };
   const handleFileUpload = () => {
     const accessToken = localStorage.getItem("accessToken");
-    const url = "https://airlines-project.onrender.com/importUser";
+    const url = "https://ec2-54-198-23-212.compute-1.amazonaws.com/importUser";
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -286,7 +286,7 @@ const NetworkTable = () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
 
-        const response = await axios.get("https://airlines-project.onrender.com/get-data", {
+        const response = await axios.get("https://ec2-54-198-23-212.compute-1.amazonaws.com/get-data", {
           headers: {
             "x-access-token": accessToken,
           },
@@ -312,7 +312,7 @@ const NetworkTable = () => {
 
     try {
       const response = await axios.delete(
-        `https://airlines-project.onrender.com/delete/${checkedRows.join(",")}`
+        `https://ec2-54-198-23-212.compute-1.amazonaws.com/delete/${checkedRows.join(",")}`
       );
 
       if (

@@ -61,7 +61,6 @@ const UpdateSectore = (props) => {
   //  disable Network Available Fields in Sector Table
   // const [availableFields, setAvailableFields] = useState([]);
 
-
   const handleClose = () => {
     setAnchorEl(null);
     setSector1Error(null);
@@ -249,7 +248,7 @@ const UpdateSectore = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://airlines-project.onrender.com/sectorsbyid/${DataId}`
+        `https://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
 
@@ -350,7 +349,7 @@ const UpdateSectore = (props) => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `https://airlines-project.onrender.com/update-sectore/${DataId}`,
+        `https://ec2-54-198-23-212.compute-1.amazonaws.com/update-sectore/${DataId}`,
         {
           sector1,
           sector2,
@@ -446,7 +445,7 @@ const UpdateSectore = (props) => {
                     value={sector1}
                     onChange={handleSector1}
                     placeholder="VI89,"
-                    disabled={true}
+                    disabled
                     />
                   {sector1Error && (
                     <div style={{ color: "red" }}>{sector1Error}</div>
@@ -602,7 +601,7 @@ const UpdateSectore = (props) => {
                     onChange={handlePaxCapacity}
                     required
                     value={paxCapacity}
-                    placeholder="1-600"
+                    placeholder="0-600"
                     />
                   {paxCapacityError && (
                     <div style={{ color: "red" }}>{paxCapacityError}</div>

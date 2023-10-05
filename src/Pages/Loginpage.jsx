@@ -8,6 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -16,8 +17,11 @@ import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import LoadingButton from "@mui/lab/LoadingButton";
+import TermsAndConditionsModal from '../Components/Homepage/TermsAndConditionsModal'
 import backgroundPic from "../assets/Images/bglogin.jpeg"
+import './loginPage.css'
 
 
 
@@ -28,11 +32,12 @@ export default function Loginpage() {
   const customStyles = {
     normal: {
       fontFamily: 'Calibri, Arial, sans-serif',
-      fontSize: '13px',
+      fontSize: '14px',
+      color: 'black',
     },
     link: {
       fontFamily: 'Calibri, Arial, sans-serif',
-      fontSize: '13px',
+      fontSize: '14px',
       marginLeft: '3px'
     }
   };
@@ -45,7 +50,7 @@ export default function Loginpage() {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://airlines-project.onrender.com/user-login', {
+      const response = await fetch('https://ec2-54-198-23-212.compute-1.amazonaws.com/user-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -84,8 +89,8 @@ export default function Loginpage() {
 
 
   return (
-    <>
-      <ThemeProvider theme={defaultTheme}>
+    <div className={`loginPage ${location.pathname === '/' ? 'withBackground' : ''}`}>
+<ThemeProvider theme={defaultTheme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -153,7 +158,8 @@ export default function Loginpage() {
             </Box>
           </Box>
         </Container>
-        <Box mt={6} >
+        <Stack >
+          <Box mt={2} >
           <Typography variant="body2" color="textSecondary" align="center" style={customStyles.normal}>
             Welcome to Airlineplan!
           </Typography>
@@ -175,8 +181,11 @@ export default function Loginpage() {
             .
           </Typography>
         </Box>
+        <TermsAndConditionsModal />
+        </Stack>
+        
       </ThemeProvider>
       <ToastContainer />
-    </>
+    </div>
   );
 }

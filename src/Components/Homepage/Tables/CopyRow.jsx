@@ -136,10 +136,10 @@ export default function CopyRow(props) {
     }
   };
   const handleDomIntl = (event) => {
-    setDomIntl(event.target.value);
+    setDomIntl(event.target.value.toLowerCase());
   };
   const handleUserTag1 = (event) => {
-    const input = event.target.value.trim();
+    const input = event.target.value;
     const isValid = /^\s*.{0,12}\s*$/.test(input);
     if (isValid) {
       setUserTag1(input);
@@ -149,7 +149,7 @@ export default function CopyRow(props) {
     }
   };
   const handleUserTag2 = (event) => {
-    const input = event.target.value.trim();
+    const input = event.target.value;
     const isValid = /^\s*.{0,12}\s*$/.test(input);
     if (isValid) {
       setUserTag2(input);
@@ -159,6 +159,7 @@ export default function CopyRow(props) {
     }
   };
   const handleRemarks1 = (event) => {
+    const input = event.target.value;
     const isValid = /^\s*.{0,12}\s*$/.test(input);
     if (isValid) {
       setRemarks1(input);
@@ -168,6 +169,7 @@ export default function CopyRow(props) {
     }
   };
   const handleRemarks2 = (event) => {
+    const input = event.target.value;
     const isValid = /^\s*.{0,12}\s*$/.test(input);
     if (isValid) {
       setRemarks2(input);
@@ -197,7 +199,7 @@ export default function CopyRow(props) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://airlines-project.onrender.com/products/${DataId}`
+        `https://ec2-54-198-23-212.compute-1.amazonaws.com/products/${DataId}`
       );
       const item = response.data;
       setFlight(item.flight);
@@ -210,7 +212,7 @@ export default function CopyRow(props) {
       setEffFromDt(item.effFromDt);
       setEffToDt(item.effToDt);
       setDow(item.dow);
-      setDomIntl(item.domINTL);
+      setDomIntl(item.domINTL.toLowerCase());
       setUserTag1(item.userTag1);
       setUserTag2(item.userTag2);
       setRemarks1(item.remarks1);
@@ -251,7 +253,7 @@ export default function CopyRow(props) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://airlines-project.onrender.com/add-Data",
+        "https://ec2-54-198-23-212.compute-1.amazonaws.com/add-Data",
         {
           flight,
           depStn,
@@ -279,7 +281,7 @@ export default function CopyRow(props) {
 
       if (response.status === 201) {
       setLoading(false);
-        toast.success("Add successful!");
+        toast.success("Update successful!");
         setTimeout(() => {
           window.location.reload();
         }, 2000);

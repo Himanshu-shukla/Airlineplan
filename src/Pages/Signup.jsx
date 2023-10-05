@@ -21,7 +21,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        airlineplan.com
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -44,7 +44,7 @@ export default function Signup() {
   const handleSignup = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://airlines-project.onrender.com/user-signup', {
+      const response = await fetch('https://ec2-54-198-23-212.compute-1.amazonaws.com/user-signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
