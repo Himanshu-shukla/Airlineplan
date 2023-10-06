@@ -248,7 +248,7 @@ const UpdateSectore = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
+        `http://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
 
@@ -349,7 +349,7 @@ const UpdateSectore = (props) => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `https://ec2-54-198-23-212.compute-1.amazonaws.com/update-sectore/${DataId}`,
+        `http://ec2-54-198-23-212.compute-1.amazonaws.com/update-sectore/${DataId}`,
         {
           sector1,
           sector2,

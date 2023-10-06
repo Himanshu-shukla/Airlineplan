@@ -72,7 +72,7 @@ const CopySector = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
+        `http://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
       const inputDate = item?.fromDt;
@@ -285,7 +285,7 @@ const CopySector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
+        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
         {
           sector1,
           sector2,

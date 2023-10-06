@@ -190,7 +190,7 @@ const FlgtsTable = (props) => {
   
       const accessToken = localStorage.getItem("accessToken");
       
-      const response = await axios.get("https://ec2-54-198-23-212.compute-1.amazonaws.com/downloadFLGTs", {
+      const response = await axios.get("http://ec2-54-198-23-212.compute-1.amazonaws.com/downloadFLGTs", {
         responseType: "blob", // Specify response type as blob
         headers: {
           "x-access-token": accessToken,

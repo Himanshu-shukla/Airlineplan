@@ -251,7 +251,7 @@ const AddSector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
+        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
         {
           sector1,
           sector2,

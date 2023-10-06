@@ -199,7 +199,7 @@ export default function CopyRow(props) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://ec2-54-198-23-212.compute-1.amazonaws.com/products/${DataId}`
+        `http://ec2-54-198-23-212.compute-1.amazonaws.com/products/${DataId}`
       );
       const item = response.data;
       setFlight(item.flight);
@@ -253,7 +253,7 @@ export default function CopyRow(props) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://ec2-54-198-23-212.compute-1.amazonaws.com/add-Data",
+        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-Data",
         {
           flight,
           depStn,

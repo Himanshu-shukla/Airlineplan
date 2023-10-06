@@ -50,7 +50,7 @@ export default function Loginpage() {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://ec2-54-198-23-212.compute-1.amazonaws.com/user-login', {
+      const response = await fetch('http://ec2-54-198-23-212.compute-1.amazonaws.com/user-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

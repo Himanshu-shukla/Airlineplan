@@ -284,7 +284,7 @@ const DashboardTable = (props) => {
       // const selectedOptions = collectSelectedOptions();
 
       const response = await axios.get(
-        'https://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard',
+        'http://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard',
         {
           params: requestData,
           headers: {
@@ -308,7 +308,7 @@ const DashboardTable = (props) => {
   //       if (periodicity.trim() !== '' && labelRef.current.trim() !== '') {
 
   //         const response = await axios.get(
-  //           `https://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard?label=${label}&periodicity=${periodicity}`,
+  //           `http://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard?label=${label}&periodicity=${periodicity}`,
   //           {
   //             headers: {
   //               "x-access-token": accessToken,
@@ -332,7 +332,7 @@ const DashboardTable = (props) => {
     const getDropdownData = async () => {
 
       const response = await axios.get(
-        `https://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard/populateDropDowns`,
+        `http://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard/populateDropDowns`,
         {
           headers: {
             "x-access-token": `${localStorage.getItem("accessToken")}`,
