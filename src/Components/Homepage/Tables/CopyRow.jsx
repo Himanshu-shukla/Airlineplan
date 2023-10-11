@@ -50,7 +50,7 @@ export default function CopyRow(props) {
   const [userTag2Error, setUserTag2Error] = useState("");
   const [remarks1Error, setRemarks1Error] = useState("");
   const [remarks2Error, setRemarks2Error] = useState("");
-  console.log(effToDt, "***");
+  // console.log(effToDt, "***");
   const handleClickOpen = () => {
     setOpen(true);
     setFlightError(null);
@@ -199,7 +199,7 @@ export default function CopyRow(props) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/products/${DataId}`
+        `https://airlineplan.com/products/${DataId}`
       );
       const item = response.data;
       setFlight(item.flight);
@@ -253,7 +253,7 @@ export default function CopyRow(props) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-Data",
+        "https://airlineplan.com/add-Data",
         {
           flight,
           depStn,
@@ -286,7 +286,7 @@ export default function CopyRow(props) {
           window.location.reload();
         }, 2000);
       }
-      console.log(response.data);
+      // console.log(response.data);
     } catch (err) {
       console.error(err);
 

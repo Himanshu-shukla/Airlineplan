@@ -72,7 +72,7 @@ const CopySector = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
+        `https://airlineplan.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
       const inputDate = item?.fromDt;
@@ -285,7 +285,7 @@ const CopySector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
+        "https://airlineplan.com/add-sector",
         {
           sector1,
           sector2,
@@ -315,7 +315,7 @@ const CopySector = (props) => {
           window.location.reload();
         }, 2000);
       }
-      console.log(response.data);
+      // console.log(response.data);
     } catch (err) {
       console.error(err);
 
@@ -329,7 +329,7 @@ const CopySector = (props) => {
     }
   };
 
-  console.log(fromDtError,"this is from date")
+  // console.log(fromDtError,"this is from date")
 
   return (
     <>

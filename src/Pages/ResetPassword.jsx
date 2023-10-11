@@ -76,8 +76,8 @@ const inpuHandler =(e)=>{
 const submitButton =async ()=>{
   if(validForm()){
     Object.assign(inputField,props)
-    console.log(inputField,props)
-    let url ='http://ec2-54-198-23-212.compute-1.amazonaws.com/change-passowrd'
+    // console.log(inputField,props)
+    let url ='https://airlineplan.com/change-passowrd'
     let optios ={
       method: 'POST',
       url:url,

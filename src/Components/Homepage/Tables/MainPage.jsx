@@ -58,7 +58,7 @@ const MainPage = () => {
   const fetchFlightsData = async () => {
     try {
       const accessToken = localStorage.getItem("accessToken");
-      const response = await axios.get("http://ec2-54-198-23-212.compute-1.amazonaws.com/flight", {
+      const response = await axios.get("https://airlineplan.com/flight", {
         headers: {
           "x-access-token": accessToken,
         },

@@ -147,7 +147,7 @@ const NetworkTable = () => {
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
-    console.log("Selected file:", file);
+    // console.log("Selected file:", file);
   };
 
   // .............................FilterHandlerFunctions.............................
@@ -207,7 +207,7 @@ const NetworkTable = () => {
     formData.append("file", selectedFile);
 
     axios
-      .post("http://ec2-54-198-23-212.compute-1.amazonaws.com/importUser", formData, {
+      .post("https://airlineplan.com/importUser", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -228,7 +228,7 @@ const NetworkTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://ec2-54-198-23-212.compute-1.amazonaws.com/get-data");
+        const response = await axios.get("https://airlineplan.com/get-data");
         setNetworkTableData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -248,7 +248,7 @@ const NetworkTable = () => {
     }
 
     try {
-      const response = await axios.delete(`http://ec2-54-198-23-212.compute-1.amazonaws.com/delete/${id}`);
+      const response = await axios.delete(`https://airlineplan.com/delete/${id}`);
       setDeletedData(response.data.data);
       toast.success("Delete Successfull");
       setTimeout(() => {

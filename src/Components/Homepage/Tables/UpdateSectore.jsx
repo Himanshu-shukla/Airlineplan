@@ -248,7 +248,7 @@ const UpdateSectore = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/sectorsbyid/${DataId}`
+        `https://airlineplan.com/sectorsbyid/${DataId}`
       );
       const item = response.data;
 
@@ -349,7 +349,7 @@ const UpdateSectore = (props) => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/update-sectore/${DataId}`,
+        `https://airlineplan.com/update-sectore/${DataId}`,
         {
           sector1,
           sector2,
@@ -379,7 +379,7 @@ const UpdateSectore = (props) => {
           window.location.reload();
         }, 2000);
       }
-      console.log(response.data);
+      // console.log(response.data);
     } catch (err) {
       console.error(err);
 

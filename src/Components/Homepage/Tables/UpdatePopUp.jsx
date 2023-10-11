@@ -202,7 +202,7 @@ const UpdatePopUp = (props) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/products/${productId}`
+        `https://airlineplan.com/products/${productId}`
       );
       const item = response.data;
 
@@ -280,7 +280,7 @@ const UpdatePopUp = (props) => {
     if (productId) {
       setLoading(true);
       axios
-        .put(`http://ec2-54-198-23-212.compute-1.amazonaws.com/update-data/${productId}`, productData, {
+        .put(`https://airlineplan.com/update-data/${productId}`, productData, {
           headers: 
           { 'x-access-token': `${localStorage.getItem('accessToken')}`, 'Content-Type': 'application/json' },
         })
@@ -314,7 +314,7 @@ const UpdatePopUp = (props) => {
     }
   };
 
-  console.log(effFromDt, "this is change");
+  // console.log(effFromDt, "this is change");
   return (
     <>
       <Button

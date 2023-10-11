@@ -243,7 +243,7 @@ const AddNetwork = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-Data",
+        "https://airlineplan.com/add-Data",
         {
           flight,
           depStn,
@@ -276,7 +276,7 @@ const AddNetwork = (props) => {
           window.location.reload();
         }, 2000);
       }
-      console.log(response.data);
+      // console.log(response.data);
     } catch (err) {
       console.error(err);
 

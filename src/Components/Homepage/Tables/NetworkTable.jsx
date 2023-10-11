@@ -80,7 +80,7 @@ const NetworkTable = () => {
         return colB.localeCompare(colA);
       }
     });
-    console.log(sorted, "sorted");
+    // console.log(sorted, "sorted");
 
     return sorted;
   };
@@ -223,7 +223,7 @@ const NetworkTable = () => {
   };
   const handleFileUpload = () => {
     const accessToken = localStorage.getItem("accessToken");
-    const url = "http://ec2-54-198-23-212.compute-1.amazonaws.com/importUser";
+    const url = "https://airlineplan.com/importUser";
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -286,12 +286,12 @@ const NetworkTable = () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
 
-        const response = await axios.get("http://ec2-54-198-23-212.compute-1.amazonaws.com/get-data", {
+        const response = await axios.get("https://airlineplan.com/get-data", {
           headers: {
             "x-access-token": accessToken,
           },
         });
-        console.log(response.data, "response.data");
+        // console.log(response.data, "response.data");
         setNetworkTableData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -312,7 +312,7 @@ const NetworkTable = () => {
 
     try {
       const response = await axios.delete(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/delete/${checkedRows.join(",")}`
+        `https://airlineplan.com/delete/${checkedRows.join(",")}`
       );
 
       if (

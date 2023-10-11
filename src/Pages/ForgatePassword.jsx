@@ -27,7 +27,7 @@ const ForgatePassword = () => {
   const sendOtp = async () => {
     try {
       setLoading(true);
-      let url = "http://ec2-54-198-23-212.compute-1.amazonaws.com/send-email";
+      let url = "https://airlineplan.com/send-email";
       let options = {
         method: "POST",
         url: url,

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "http://ec2-54-198-23-212.compute-1.amazonaws.com/",
+  "proxy": "https://airlineplan.com/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

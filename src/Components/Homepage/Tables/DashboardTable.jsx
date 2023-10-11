@@ -199,7 +199,7 @@ const DashboardTable = (props) => {
           if (colIndex === 0) {
               return value;
           }
-          const numValue = parseFloat(value);
+          const numValue = parseFloat((typeof value === 'string') ? parseFloat(value.replace(/,/g, '')) : value);
           return isNaN(numValue) ? value : numValue;
       });
   });
@@ -284,7 +284,7 @@ const DashboardTable = (props) => {
       // const selectedOptions = collectSelectedOptions();
 
       const response = await axios.get(
-        'http://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard',
+        'https://airlineplan.com/dashboard',
         {
           params: requestData,
           headers: {
@@ -294,7 +294,7 @@ const DashboardTable = (props) => {
       );
 
       setData(response.data);
-      console.log("data received in dashboard:", response.data);
+      // console.log("data received in dashboard:", response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -308,7 +308,7 @@ const DashboardTable = (props) => {
   //       if (periodicity.trim() !== '' && labelRef.current.trim() !== '') {
 
   //         const response = await axios.get(
-  //           `http://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard?label=${label}&periodicity=${periodicity}`,
+  //           `https://airlineplan.com/dashboard?label=${label}&periodicity=${periodicity}`,
   //           {
   //             headers: {
   //               "x-access-token": accessToken,
@@ -332,7 +332,7 @@ const DashboardTable = (props) => {
     const getDropdownData = async () => {
 
       const response = await axios.get(
-        `http://ec2-54-198-23-212.compute-1.amazonaws.com/dashboard/populateDropDowns`,
+        `https://airlineplan.com/dashboard/populateDropDowns`,
         {
           headers: {
             "x-access-token": `${localStorage.getItem("accessToken")}`,
@@ -1036,7 +1036,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[0]?.paxSF == null) ? (isNaN(data[0]?.paxSF) ? "N/A" : data[0]?.paxSF + "%") : " "}
+                    {/* {data && data.length > 0 && !(data[0]?.paxLF == null) ? (isNaN(data[0]?.paxLF) ? "N/A" : data[0]?.paxLF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[0]?.paxSF != null
+      ? isNaN(data[0]?.paxSF)
+        ? "N/A"
+        : data[0]?.paxSF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1046,7 +1055,17 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[1]?.paxSF == null) ? (isNaN(data[1]?.paxSF) ? "N/A" : data[1]?.paxSF + "%") : " "}
+                    {/* {data && data.length > 0 && !(data[1]?.paxSF == null)? (isNaN(data[1]?.paxSF) ? "N/A" : data[1]?.paxSF+ "%") : " "} */}
+                  
+                    {
+  data && data.length > 0
+    ? data[1]?.paxSF != null
+      ? isNaN(data[1]?.paxSF)
+        ? "N/A"
+        : data[1]?.paxSF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1056,7 +1075,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[2]?.paxSF == null)? (isNaN(data[2]?.paxSF) ? "N/A" : data[2]?.paxSF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[2]?.paxSF == null)? (isNaN(data[2]?.paxSF) ? "N/A" : data[2]?.paxSF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[2]?.paxSF != null
+      ? isNaN(data[2]?.paxSF)
+        ? "N/A"
+        : data[2]?.paxSF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1066,7 +1094,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[3]?.paxSF == null)? (isNaN(data[3]?.paxSF) ? "N/A" : data[3]?.paxSF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[3]?.paxSF == null)? (isNaN(data[3]?.paxSF) ? "N/A" : data[3]?.paxSF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[3]?.paxSF != null
+      ? isNaN(data[3]?.paxSF)
+        ? "N/A"
+        : data[3]?.paxSF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1076,7 +1113,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[4]?.paxSF == null)? (isNaN(data[4]?.paxSF) ? "N/A" : data[4]?.paxSF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[4]?.paxSF == null)? (isNaN(data[4]?.paxSF) ? "N/A" : data[4]?.paxSF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[4]?.paxSF != null
+      ? isNaN(data[4]?.paxSF)
+        ? "N/A"
+        : data[4]?.paxSF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1084,14 +1130,23 @@ const DashboardTable = (props) => {
                       whiteSpace: "nowrap",
                       padding: "5px",
                       textAlign: "center",
-                    }}  
+                    }}
                   >
-                    {data && data.length > 0 && !(data[5]?.paxSF == null)? (isNaN(data[5]?.paxSF) ? "N/A" : data[5]?.paxSF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[5]?.paxSF == null)? (isNaN(data[5]?.paxSF) ? "N/A" : data[5]?.paxSF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[5]?.paxSF != null
+      ? isNaN(data[5]?.paxSF)
+        ? "N/A"
+        : data[5]?.paxSF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   {Array.from({ length: additionalTableCellsCount }).map(
                     (_, index) => {
                       const item = data && data[index + 6]; // Ensure item is defined
-                      const paxSF = (isNaN(item?.paxSF) ? "N/A" : item?.paxSF+ "%"); // Handle cases where destinations is not available
+                      const paxSF = (item?.paxSF == null || isNaN(item?.paxSF) ? "N/A" : item?.paxSF+ "%"); // Handle cases where destinations is not available
                       const key = index; // Use a unique identifier as the key, replace 'id' with your actual identifier
 
                       return (
@@ -1104,7 +1159,7 @@ const DashboardTable = (props) => {
                             textAlign: "center",
                           }}
                         >
-                          {paxSF}
+                          {paxSF ? paxSF : " "}
                         </TableCell>
                       );
                     }
@@ -1128,7 +1183,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[0]?.paxLF == null) ? (isNaN(data[0]?.paxLF) ? "N/A" : data[0]?.paxLF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[0]?.paxLF == null) ? (isNaN(data[0]?.paxLF) ? "N/A" : data[0]?.paxLF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[0]?.paxLF != null
+      ? isNaN(data[0]?.paxLF)
+        ? "N/A"
+        : data[0]?.paxLF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1138,7 +1202,17 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[1]?.paxLF == null)? (isNaN(data[1]?.paxLF) ? "N/A" : data[1]?.paxLF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[1]?.paxLF == null)? (isNaN(data[1]?.paxLF) ? "N/A" : data[1]?.paxLF+ "%") : " "} */}
+                  
+                    {
+  data && data.length > 0
+    ? data[1]?.paxLF != null
+      ? isNaN(data[1]?.paxLF)
+        ? "N/A"
+        : data[1]?.paxLF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1148,7 +1222,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[2]?.paxLF == null)? (isNaN(data[2]?.paxLF) ? "N/A" : data[2]?.paxLF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[2]?.paxLF == null)? (isNaN(data[2]?.paxLF) ? "N/A" : data[2]?.paxLF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[2]?.paxLF != null
+      ? isNaN(data[2]?.paxLF)
+        ? "N/A"
+        : data[2]?.paxLF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1158,7 +1241,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[3]?.paxLF == null)? (isNaN(data[3]?.paxLF) ? "N/A" : data[3]?.paxLF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[3]?.paxLF == null)? (isNaN(data[3]?.paxLF) ? "N/A" : data[3]?.paxLF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[3]?.paxLF != null
+      ? isNaN(data[3]?.paxLF)
+        ? "N/A"
+        : data[3]?.paxLF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1168,7 +1260,16 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[4]?.paxLF == null)? (isNaN(data[4]?.paxLF) ? "N/A" : data[4]?.paxLF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[4]?.paxLF == null)? (isNaN(data[4]?.paxLF) ? "N/A" : data[4]?.paxLF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[4]?.paxLF != null
+      ? isNaN(data[4]?.paxLF)
+        ? "N/A"
+        : data[4]?.paxLF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1178,12 +1279,21 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[5]?.paxLF == null)? (isNaN(data[5]?.paxLF) ? "N/A" : data[5]?.paxLF+ "%") : " "}
+                    {/* {data && data.length > 0 && !(data[5]?.paxLF == null)? (isNaN(data[5]?.paxLF) ? "N/A" : data[5]?.paxLF+ "%") : " "} */}
+                    {
+  data && data.length > 0
+    ? data[5]?.paxLF != null
+      ? isNaN(data[5]?.paxLF)
+        ? "N/A"
+        : data[5]?.paxLF + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   {Array.from({ length: additionalTableCellsCount }).map(
                     (_, index) => {
                       const item = data && data[index + 6]; // Ensure item is defined
-                      const paxLF = (isNaN(item?.paxLF) ? "N/A" : item?.paxSF+ "%"); // Handle cases where destinations is not available
+                      const paxLF = (item?.paxLF == null || isNaN(item?.paxLF) ? "N/A" : item?.paxLF+ "%"); // Handle cases where destinations is not available
                       const key = index; // Use a unique identifier as the key, replace 'id' with your actual identifier
 
                       return (
@@ -1404,7 +1514,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[0]?.ct2ctc == null)? (isNaN(data[0]?.ct2ctc) ? "N/A" : data[0]?.ct2ctc+ "%") : " "}
+                    {
+  data && data.length > 0
+    ? data[0]?.ct2ctc != null
+      ? isNaN(data[0]?.ct2ctc)
+        ? "N/A"
+        : data[0]?.ct2ctc + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1414,8 +1532,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[1]?.ct2ctc == null)? (isNaN(data[1]?.ct2ctc) ? "N/A" : data[1]?.ct2ctc+ "%") : " "}
-
+                {
+  data && data.length > 0
+    ? data[1]?.ct2ctc != null
+      ? isNaN(data[1]?.ct2ctc)
+        ? "N/A"
+        : data[1]?.ct2ctc + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1425,8 +1550,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[2]?.ct2ctc == null)? (isNaN(data[2]?.ct2ctc) ? "N/A" : data[2]?.ct2ctc+ "%") : " "}
-
+                    {
+  data && data.length > 0
+    ? data[2]?.ct2ctc != null
+      ? isNaN(data[2]?.ct2ctc)
+        ? "N/A"
+        : data[2]?.ct2ctc + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1436,8 +1568,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[3]?.ct2ctc == null)? (isNaN(data[3]?.ct2ctc) ? "N/A" : data[3]?.ct2ctc+ "%") : " "}
-
+                    {
+  data && data.length > 0
+    ? data[3]?.ct2ctc != null
+      ? isNaN(data[3]?.ct2ctc)
+        ? "N/A"
+        : data[3]?.ct2ctc + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1447,8 +1586,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[4]?.ct2ctc == null)? (isNaN(data[4]?.ct2ctc) ? "N/A" : data[4]?.ct2ctc+ "%") : " "}
-
+                    {
+  data && data.length > 0
+    ? data[4]?.ct2ctc != null
+      ? isNaN(data[4]?.ct2ctc)
+        ? "N/A"
+        : data[4]?.ct2ctc + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1458,14 +1604,21 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[5]?.ct2ctc == null)? (isNaN(data[5]?.ct2ctc) ? "N/A" : data[5]?.ct2ctc+ "%") : " "}
-
+                    {
+  data && data.length > 0
+    ? data[5]?.ct2ctc != null
+      ? isNaN(data[5]?.ct2ctc)
+        ? "N/A"
+        : data[5]?.ct2ctc + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   {Array.from({ length: additionalTableCellsCount }).map(
                     (_, index) => {
                       const item = data && data[index + 6]; // Ensure item is defined
                       const key = index; // Use a unique identifier as the key, replace 'id' with your actual identifier
-                      const ct2ctc = (isNaN(item?.ct2ctc) ? "N/A" : item?.ct2ctc+ "%");
+                      const ct2ctc = (item?.ct2ctc == null || isNaN(item?.ct2ctc) ? "N/A" : item?.ct2ctc+ "%");
                       return (
                         <TableCell
                           key={key}
@@ -1500,7 +1653,32 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[0]?.cftk2atk == null)? (isNaN(data[0]?.cftk2atk) ? "N/A" : data[0]?.cftk2atk+ "%") : " "}
+{
+  data && data.length > 0
+    ? data[0]?.cftk2atk != null
+      ? isNaN(data[0]?.cftk2atk)
+        ? "N/A"
+        : data[0]?.cftk2atk + "%"
+      : "N/A"
+    : " "
+}                  </TableCell>
+                  <TableCell
+                    sx={{
+                      border: "1px solid black",
+                      whiteSpace: "nowrap",
+                      padding: "5px",
+                      textAlign: "center",
+                    }}
+                  >
+                   {
+  data && data.length > 0
+    ? data[1]?.cftk2atk != null
+      ? isNaN(data[1]?.cftk2atk)
+        ? "N/A"
+        : data[1]?.cftk2atk + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1510,8 +1688,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[1]?.cftk2atk == null)? (isNaN(data[1]?.cftk2atk) ? "N/A" : data[1]?.cftk2atk+ "%") : " "}
-
+{
+  data && data.length > 0
+    ? data[2]?.cftk2atk != null
+      ? isNaN(data[2]?.cftk2atk)
+        ? "N/A"
+        : data[2]?.cftk2atk + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1521,8 +1706,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[2]?.cftk2atk == null)? (isNaN(data[2]?.cftk2atk) ? "N/A" : data[2]?.cftk2atk+ "%") : " "}
-
+{
+  data && data.length > 0
+    ? data[3]?.cftk2atk != null
+      ? isNaN(data[3]?.cftk2atk)
+        ? "N/A"
+        : data[3]?.cftk2atk + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1532,8 +1724,15 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[3]?.cftk2atk == null)? (isNaN(data[3]?.cftk2atk) ? "N/A" : data[3]?.cftk2atk+ "%") : " "}
-
+{
+  data && data.length > 0
+    ? data[4]?.cftk2atk != null
+      ? isNaN(data[4]?.cftk2atk)
+        ? "N/A"
+        : data[4]?.cftk2atk + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -1543,25 +1742,21 @@ const DashboardTable = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    {data && data.length > 0 && !(data[4]?.cftk2atk == null)? (isNaN(data[4]?.cftk2atk) ? "N/A" : data[4]?.cftk2atk+ "%") : " "}
-
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      border: "1px solid black",
-                      whiteSpace: "nowrap",
-                      padding: "5px",
-                      textAlign: "center",
-                    }}
-                  >
-                    {data && data.length > 0 && !(data[5]?.cftk2atk == null)? (isNaN(data[5]?.cftk2atk) ? "N/A" : data[5]?.cftk2atk+ "%") : " "}
-
+{
+  data && data.length > 0
+    ? data[5]?.cftk2atk != null
+      ? isNaN(data[5]?.cftk2atk)
+        ? "N/A"
+        : data[5]?.cftk2atk + "%"
+      : "N/A"
+    : " "
+}
                   </TableCell>
                   {Array.from({ length: additionalTableCellsCount }).map(
                     (_, index) => {
                       const item = data && data[index + 6]; // Ensure item is defined
                       const key = index; // Use a unique identifier as the key, replace 'id' with your actual identifier
-                      const cftk2atk = (isNaN(item?.cftk2atk) ? "N/A" : item?.cftk2atk+ "%");
+                      const cftk2atk = (item?.cftk2atk == null || isNaN(item?.cftk2atk) ? "N/A" : item?.cftk2atk+ "%");
                       return (
                         <TableCell
                           key={key}

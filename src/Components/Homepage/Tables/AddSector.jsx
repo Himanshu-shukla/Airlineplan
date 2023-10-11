@@ -251,7 +251,7 @@ const AddSector = (props) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://ec2-54-198-23-212.compute-1.amazonaws.com/add-sector",
+        "https://airlineplan.com/add-sector",
         {
           sector1,
           sector2,
@@ -281,7 +281,7 @@ const AddSector = (props) => {
           window.location.reload();
         }, 2000);
       }
-      console.log(response.data);
+      // console.log(response.data);
     } catch (err) {
       console.error(err);
 

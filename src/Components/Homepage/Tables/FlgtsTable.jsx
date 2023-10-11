@@ -165,7 +165,7 @@ const FlgtsTable = (props) => {
     setFlgtsTableData(props.flightsData);
   }, [props.flightsData]);
 
-  console.log(flgtsTableData, "this is data");
+  // console.log(flgtsTableData, "this is data");
 
   const open = Boolean(anchorEl);
 
@@ -190,7 +190,7 @@ const FlgtsTable = (props) => {
   
       const accessToken = localStorage.getItem("accessToken");
       
-      const response = await axios.get("http://ec2-54-198-23-212.compute-1.amazonaws.com/downloadFLGTs", {
+      const response = await axios.get("https://airlineplan.com/downloadFLGTs", {
         responseType: "blob", // Specify response type as blob
         headers: {
           "x-access-token": accessToken,
